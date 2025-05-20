@@ -145,3 +145,52 @@ body {
   max-width: 100%;
 }
 
+
+/* segunda parte */
+/* grupos de inputs */
+.cep-estado-group,
+.cidade-bairro-group,
+.rua-numero-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* cep maior */
+.cep-estado-group .field:first-child {
+  flex: 2 1 0;
+  min-width: 100px;
+}
+
+/* uf pequeno */
+.cep-estado-group .field:last-child {
+  flex: 0 0 100px;
+  min-width: 90px;
+}
+
+/* 40/40 */
+.cidade-bairro-group .field {
+  flex: 1 1 0;
+  min-width: 120px;
+}
+
+/* rua maior */
+.rua-numero-group .field:first-child {
+  flex: 2 1 0;
+  min-width: 100px;
+}
+
+/* número pequeno */
+.rua-numero-group .field:last-child {
+  flex: 0 0 80px;
+  min-width: 60px;
+}
+
+/*  tirando seta do input type number */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+

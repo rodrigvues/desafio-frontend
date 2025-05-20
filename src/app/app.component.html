@@ -17,12 +17,12 @@
     <form class="cadastro-form" (ngSubmit)="onSubmit()" #cadastroForm="ngForm">
       <div class="nome-sobrenome-group">
         <p-floatlabel class="field">
-          <input pInputText id="nome" name="nome" [(ngModel)]="nome" autocomplete="off" />
+          <input pInputText id="nome" name="nome" [(ngModel)]="nome" autocomplete="off"  required />
           <label for="nome">Nome</label>
         </p-floatlabel>
 
         <p-floatlabel class="field">
-          <input pInputText id="sobrenome" name="sobrenome" [(ngModel)]="sobrenome" autocomplete="off" />
+          <input pInputText id="sobrenome" name="sobrenome" [(ngModel)]="sobrenome" autocomplete="off" required />
           <label for="sobrenome">Sobrenome</label>
         </p-floatlabel>
       </div>
@@ -32,7 +32,8 @@
         [options]="opcoesGeneros"
         [(ngModel)]="generoSelecionado"
         name="genero"
-        placeholder="Qual o seu gênero?">
+        placeholder="Qual o seu gênero?"
+        required>
       </p-dropdown>
 
       <p-button type="submit" label="Avançar no Cadastro" [disabled]="!cadastroForm.form.valid"></p-button>
@@ -40,52 +41,61 @@
     </ng-container>
 
     <ng-container *ngIf="parteCadastro === 2">
-    <h2 class="cadastro-formulario-title">Mais alguns detalhes...</h2>
-    <p class="cadastro-formulario-text">
-      Precisamos também de mais informações sobre seu endereço, preencha seus dados abaixo:<br/>
-      <i>*itens obrigatórios</i> 
-    </p>
+      <h2 class="cadastro-formulario-title">Mais alguns detalhes...</h2>
+      <p class="cadastro-formulario-text">
+        Precisamos também de mais informações sobre seu endereço, preencha seus dados abaixo:<br/>
+        <strong>* Campos Obrigatórios</strong>
+      </p>
 
-    <form class="cadastro-form" (ngSubmit)="onSalvar()" #cadastroForm="ngForm">
-      <div class="cep-estado-group">
-        <p-floatlabel class="field">
-          <input pInputText id="cep" name="cep" [(ngModel)]="cep" autocomplete="off" />
-          <label for="cep">CEP *</label>
+      <form class="cadastro-form" (ngSubmit)="onSalvar()" #cadastroForm="ngForm">
+        <div class="cep-estado-group">
+          <p-floatlabel class="field">
+            <input pInputText id="cep" name="cep" [(ngModel)]="cep"   (blur)="buscarCep()"  autocomplete="off"  required />
+            <label for="cep">CEP *</label>
+          </p-floatlabel>
+
+          <p-floatlabel class="field">
+            <input pInputText id="uf" name="uf" [(ngModel)]="uf" autocomplete="uf"  required />
+            <label for="cep">UF *</label>
+          </p-floatlabel>
+        </div>
+
+        <div class="cidade-bairro-group">
+          <p-floatlabel class="field" variant="on">
+            <input pInputText id="localidade" name="localidade" [(ngModel)]="localidade" autocomplete="off" required />
+            <label for="localidade">Cidade *</label>
+          </p-floatlabel>
+          <p-floatlabel class="field" variant="on">
+              <input pInputText id="bairro" name="bairro" [(ngModel)]="bairro" autocomplete="off" required />
+              <label for="bairro">Bairro *</label>
+          </p-floatlabel>
+        </div>
+        
+        <div class="rua-numero-group">
+          <p-floatlabel class="field" variant="on" >
+            <input pInputText id="logradouro" name="logradouro" [(ngModel)]="logradouro" autocomplete="off" required />
+            <label for="logradouro">Rua ( Ex: 'Rua Araraquara' ) *</label>
+          </p-floatlabel>
+          <p-iftalabel class="field" variant="on">
+              <input type="number"  pInputText id="numero" name="numero" [(ngModel)]="numero"  autocomplete="off"  required />
+              <label for="numero">Nº *</label>
+          </p-iftalabel>
+        </div>
+
+        <p-floatlabel class="field" variant="on">
+              <input pInputText id="complemento" name="complemento" [(ngModel)]="complemento" autocomplete="off" />
+              <label for="complemento">Complemento ( Opcional )</label>
         </p-floatlabel>
 
-        <p-dropdown
-        class="field"
-        [options]="opcoesUF"
-        [(ngModel)]="UFSelecionado"
-        name="uf"
-        placeholder="UF">
-        </p-dropdown>
-      </div>
-      
-      <p-floatlabel class="field">
-          <input pInputText id="rua" name="rua" [(ngModel)]="rua" autocomplete="off" />
-          <label for="rua">Rua ( Ex: 'Rua Araraquara' ) *</label>
-      </p-floatlabel>
-
-      <div class="bairro-numero-group">
-        <p-floatlabel class="field">
-            <input pInputText id="bairro" name="bairro" [(ngModel)]="bairro" autocomplete="off" />
-            <label for="bairro">Bairro *</label>
-        </p-floatlabel>
-
-        <p-floatlabel class="field">
-            <input pInputText id="numero" name="numero" [(ngModel)]="numero" autocomplete="off" />
-            <label for="numero">Número *</label>
-        </p-floatlabel>
-      </div>
-
-      <p-floatlabel class="field">
-            <input pInputText id="complemento" name="complemento" [(ngModel)]="complemento" autocomplete="off" />
-            <label for="complemento">Complemento ( Opcional )</label>
-      </p-floatlabel>
-
-      <p-button type="submit" label="Salvar" [disabled]="!cadastroForm.form.valid"></p-button>
-    </form>
+        <p-button 
+        type="button"
+        label="Salvar"
+        [disabled]="!cadastroForm?.form?.valid"
+        (click)="onSalvar(cadastroForm)">
+        </p-button>
+      </form>
     </ng-container>
   </section>
+  <p-toast></p-toast>
+
 </div>
