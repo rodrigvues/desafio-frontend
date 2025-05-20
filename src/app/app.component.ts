@@ -5,6 +5,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule, NgForm } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
 import { ButtonModule } from 'primeng/button';
+import { NgIf } from '@angular/common';
 
 //organizando imports de componentes do prime ng, botão inputs etc
 @Component({
@@ -18,7 +19,8 @@ import { ButtonModule } from 'primeng/button';
     InputTextModule,
     FormsModule,
     DropdownModule,
-    ButtonModule
+    ButtonModule,
+    NgIf
   ]
 })
 
@@ -27,7 +29,13 @@ export class AppComponent {
   nome: string = '';
   sobrenome: string = '';
   generoSelecionado: string = '';
-
+  UFSelecionado: string = '';
+  cep: string = '';
+  rua: string = '';
+  bairro: string = '';
+  numero: string = '';
+  complemento: string = '';
+  
   //lista generos
   opcoesGeneros = [
     { label: 'Homem', value: 'Homem' },
@@ -35,12 +43,24 @@ export class AppComponent {
     { label: 'Prefiro não responder', value: 'Prefiro não responder' }
   ];
 
+  opcoesUF = [
+    { label: 'SC', value: 'SC' },
+    { label: 'SP', value: 'SP' },
+    { label: 'RJ', value: 'RJ' }
+  ];
+
+  //função para mudar etapa do cadastro com
+  parteCadastro = 1;
+
   onSubmit(form?: NgForm) {
-    // teste pra ver se tá pegando info
-    console.log('Formulário enviado:', {
-      nome: this.nome,
-      sobrenome: this.sobrenome,
-      generoSelecionado: this.generoSelecionado
-    });
+    // função ngif que muda aba
+    if (this.parteCadastro === 1) {
+    this.parteCadastro = 2;
+    } 
+  }
+
+  // função para mostrar pop up
+  onSalvar(form?: NgForm) {
+    console.log('funcionando')
   }
 }
