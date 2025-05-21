@@ -65,6 +65,9 @@ body {
 
 
 /* formulário */
+h2 {
+  color: #00C389;
+}
 .cadastro-formulario {
   flex: 0 0 40%;
   display: flex;
@@ -76,7 +79,7 @@ body {
   overflow-x: hidden; 
 }
 
-.cadastro-formulario-title,
+
 .cadastro-formulario-text {
   text-align: left;
   align-self: flex-start;
