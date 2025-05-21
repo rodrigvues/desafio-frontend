@@ -225,3 +225,39 @@ input::-webkit-inner-spin-button {
   width: 100%;
 }
 
+
+/*     responsividade para celulares ( só tira a seção do degradê do lado ) */
+@media (max-width: 768px) {
+  .cadastro-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .cadastro-info {
+    flex: none;
+    width: 100%;
+    padding: 2rem 1.5rem;
+    align-items: center;
+    text-align: center;
+    height: auto;
+    box-shadow: none;
+  }
+
+  .cadastro-info-title {
+    font-size: 2rem;
+  }
+
+  .cadastro-info-text,
+  .cadastro-info-rodape {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    position: static;
+  }
+
+  .cadastro-formulario {
+    flex: none;
+    width: 100%;
+    padding: 2rem 1.5rem;
+    height: 100%;
+  }
+}
