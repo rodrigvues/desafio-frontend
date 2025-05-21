@@ -17,12 +17,12 @@
     <form class="cadastro-form" (ngSubmit)="onSubmit()" #cadastroForm="ngForm">
       <div class="nome-sobrenome-group">
         <p-floatlabel class="field">
-          <input pInputText id="nome" name="nome" [(ngModel)]="nome" autocomplete="off"  required />
+          <input pInputText pTooltip="Insira o seu nome" showDelay="1000" hideDelay="100" id="nome" name="nome" [(ngModel)]="nome" autocomplete="off"  required />
           <label for="nome">Nome</label>
         </p-floatlabel>
 
         <p-floatlabel class="field">
-          <input pInputText id="sobrenome" name="sobrenome" [(ngModel)]="sobrenome" autocomplete="off" required />
+          <input pInputText id="sobrenome" name="sobrenome" [(ngModel)]="sobrenome" autocomplete="off" pTooltip="Insira o seu sobrenome" tooltipPosition="left"  showDelay="1000" hideDelay="100" required />
           <label for="sobrenome">Sobrenome</label>
         </p-floatlabel>
       </div>
@@ -32,11 +32,12 @@
         [options]="opcoesGeneros"
         [(ngModel)]="generoSelecionado"
         name="genero"
+        pTooltip="Selecione seu gênero" tooltipPosition="left"  showDelay="1000" hideDelay="100"
         placeholder="Qual o seu gênero?"
         required>
       </p-dropdown>
 
-      <p-button type="submit" label="Avançar no Cadastro" [disabled]="!cadastroForm.form.valid"></p-button>
+      <p-button type="submit" label="Avançar no Cadastro" pTooltip="Se não consegue clicar, verifique dados nos campos" showDelay="1000" hideDelay="100" [disabled]="!cadastroForm.form.valid"></p-button>
     </form>
     </ng-container>
 
@@ -50,40 +51,40 @@
       <form class="cadastro-form" (ngSubmit)="onSalvar()" #cadastroForm="ngForm">
         <div class="cep-estado-group">
           <p-floatlabel class="field">
-            <input pInputText id="cep" name="cep" [(ngModel)]="cep"   (blur)="buscarCep()"  autocomplete="off"  required />
+            <input pInputText id="cep" name="cep" [(ngModel)]="cep" pTooltip="Insira o seu CEP" showDelay="1000" hideDelay="100"  (blur)="buscarCep()"  autocomplete="off"  required />
             <label for="cep">CEP *</label>
           </p-floatlabel>
 
           <p-floatlabel class="field">
-            <input pInputText id="uf" name="uf" [(ngModel)]="uf" autocomplete="uf"  required />
+            <input pInputText id="uf" name="uf" [(ngModel)]="uf" pTooltip="Insira o seu estado" tooltipPosition="left" showDelay="1000" hideDelay="100" autocomplete="uf"  required />
             <label for="cep">UF *</label>
           </p-floatlabel>
         </div>
 
         <div class="cidade-bairro-group">
           <p-floatlabel class="field" variant="on">
-            <input pInputText id="localidade" name="localidade" [(ngModel)]="localidade" autocomplete="off" required />
+            <input pInputText id="localidade" pTooltip="Insira a sua cidade" showDelay="1000" hideDelay="100"  name="localidade" [(ngModel)]="localidade" autocomplete="off"  required />
             <label for="localidade">Cidade *</label>
           </p-floatlabel>
           <p-floatlabel class="field" variant="on">
-              <input pInputText id="bairro" name="bairro" [(ngModel)]="bairro" autocomplete="off" required />
+              <input pInputText id="bairro" name="bairro" pTooltip="Insira o seu bairro" tooltipPosition="left" showDelay="1000" hideDelay="100" [(ngModel)]="bairro" autocomplete="off" required />
               <label for="bairro">Bairro *</label>
           </p-floatlabel>
         </div>
         
         <div class="rua-numero-group">
           <p-floatlabel class="field" variant="on" >
-            <input pInputText id="logradouro" name="logradouro" [(ngModel)]="logradouro" autocomplete="off" required />
+            <input pInputText id="logradouro" name="logradouro" pTooltip="Insira a sua rua" showDelay="1000" hideDelay="100" [(ngModel)]="logradouro" autocomplete="off" required />
             <label for="logradouro">Rua ( Ex: 'Rua Araraquara' ) *</label>
           </p-floatlabel>
           <p-iftalabel class="field" variant="on">
-              <input type="number"  pInputText id="numero" name="numero" [(ngModel)]="numero"  autocomplete="off"  required />
+              <input type="number"  pInputText id="numero" name="numero" [(ngModel)]="numero"  autocomplete="off"   required  pTooltip="Insira o número da sua casa" tooltipPosition="left" showDelay="1000" hideDelay="100"/>
               <label for="numero">Nº *</label>
           </p-iftalabel>
         </div>
 
         <p-floatlabel class="field" variant="on">
-              <input pInputText id="complemento" name="complemento" [(ngModel)]="complemento" autocomplete="off" />
+              <input pInputText  id="complemento" name="complemento" [(ngModel)]="complemento" pTooltip="Insira o complemento se existente" showDelay="1000" hideDelay="100" autocomplete="off" />
               <label for="complemento">Complemento ( Opcional )</label>
         </p-floatlabel>
 
@@ -91,6 +92,7 @@
         type="button"
         label="Salvar"
         [disabled]="!cadastroForm?.form?.valid"
+        pTooltip="Se não conseguir clicar, verifique dados nos campos" showDelay="1000" hideDelay="100"
         (click)="onSalvar(cadastroForm)">
         </p-button>
       </form>

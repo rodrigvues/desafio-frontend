@@ -6,3 +6,9 @@ html, body {
 
 }
 
+/* mudando fonte ptooltip manualmente */
+body,
+.p-tooltip,
+.p-tooltip .p-tooltip-text {
+  font-family: 'Inter', sans-serif; 
+}

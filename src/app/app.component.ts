@@ -10,6 +10,7 @@ import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { CommonModule } from '@angular/common';
 import { IftaLabel } from 'primeng/iftalabel';
+import { TooltipModule } from 'primeng/tooltip';
 
 
 //organizando imports de componentes do prime ng, botão inputs etc
@@ -29,7 +30,8 @@ import { IftaLabel } from 'primeng/iftalabel';
     NgIf,
     CommonModule,
     ToastModule,
-    IftaLabel
+    IftaLabel,
+    TooltipModule
   ]
 })
 
