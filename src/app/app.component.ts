@@ -11,6 +11,7 @@ import { MessageService } from 'primeng/api';
 import { CommonModule } from '@angular/common';
 import { IftaLabel } from 'primeng/iftalabel';
 import { TooltipModule } from 'primeng/tooltip';
+import { Dialog } from 'primeng/dialog';
 
 
 //organizando imports de componentes do prime ng, botão inputs etc
@@ -31,7 +32,8 @@ import { TooltipModule } from 'primeng/tooltip';
     CommonModule,
     ToastModule,
     IftaLabel,
-    TooltipModule
+    TooltipModule,
+    Dialog
   ]
 })
 
@@ -52,9 +54,11 @@ export class AppComponent {
   //validar cep pro botão salvar
   cepValido: boolean = false;
 
-
   //mensagem para o toast de erro de cep
   constructor(private messageService: MessageService) {}
+
+  // variável bool visible pro pop up 
+  visible = false;
 
   //lista generos
   opcoesGeneros = [
@@ -147,6 +151,7 @@ export class AppComponent {
     this.showError(); // caso cep invalido
     return;
     }
-      console.log('funcionando')
+       //mostra pop up
+      this.visible = true;
   }
 }

@@ -98,6 +98,27 @@
       </form>
     </ng-container>
   </section>
+  <p-dialog header="Verifique seus Dados:" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }">
+    
+    <div class="popup-info" >
+      <p><strong>Nome:</strong> {{ nome }} {{ sobrenome }}</p>
+      <p><strong>Gênero:</strong> {{ generoSelecionado }}</p>
+      <p><strong>CEP:</strong> {{ cep }}</p>
+      <p><strong>UF:</strong> {{ uf }}</p>
+      <p><strong>Localidade:</strong> {{ localidade }}</p>
+      <p><strong>Bairro:</strong> {{ bairro }}</p>
+      <p><strong>Logradouro:</strong> {{ logradouro }}</p>
+      <p><strong>Número:</strong> {{ numero }}</p>
+      <p><strong>Complemento:</strong> {{ complemento }}</p>
+    </div>
+
+    <p-button 
+        type="button"
+        label="Confirmar"
+        (click)="visible = false"
+        >
+    </p-button>
+  </p-dialog>
   <p-toast></p-toast>
 
 </div>
