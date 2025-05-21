@@ -7,7 +7,7 @@
     <p class="cadastro-info-rodape">&#64;2025 Desafio Front End</p>
   </section>
 
-  <section class="cadastro-formulario">
+  <section class="cadastro-formulario" [class.fade-out]="isFading">
     <ng-container *ngIf="parteCadastro === 1">
     <h2 class="cadastro-formulario-title">Bem-vindo</h2>
     <p class="cadastro-formulario-text">
@@ -37,7 +37,7 @@
         required>
       </p-dropdown>
 
-      <p-button type="submit" label="Avançar no Cadastro" pTooltip="Se não consegue clicar, verifique dados nos campos" showDelay="1000" hideDelay="100" [disabled]="!cadastroForm.form.valid"></p-button>
+      <p-button type="button" label="Avançar no Cadastro" pTooltip="Se não consegue clicar, verifique dados nos campos" showDelay="1000" hideDelay="100"  (click)="trocarComFade(2)" [disabled]="isFading || !cadastroForm.form.valid"></p-button>
     </form>
     </ng-container>
 

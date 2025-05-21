@@ -67,8 +67,25 @@ export class AppComponent {
     { label: 'Prefiro não responder', value: 'Prefiro não responder' }
   ];
 
-  //função para mudar etapa do cadastro com
+  //função para mudar etapa do cadastro com ngif
   parteCadastro = 1;
+  isFading = false;
+
+  //await pra fazer animação e trocar parte
+  async trocarComFade(novaParte: number) {
+    if (this.isFading || this.parteCadastro === novaParte) {
+      return; // evita clique duplo e trocar para a mesma etapa
+    }
+
+    this.isFading = true;                     
+    await this.delay(400);                     
+    this.parteCadastro = novaParte;           
+    this.isFading = false;                    
+  }
+  private delay(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
 
   onSubmit(form?: NgForm) {
     // função ngif que muda aba

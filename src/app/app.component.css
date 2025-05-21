@@ -65,6 +65,21 @@ body {
 
 
 /* formulário */
+
+/*  animação entre etapa ( opacity vai e volta  cadastro formulario ) sem animation do angular pq mexia com posição */
+.cadastro-formulario {
+  transition: opacity 0.4s ease;
+  opacity: 1;
+}
+
+.cadastro-formulario.fade-out {
+  opacity: 0;
+}
+
+.cadastro-formulario.fade-in {
+  opacity: 1; 
+}
+
 h2 {
   color: #00C389;
 }
